@@ -1,0 +1,29 @@
+﻿@model attempt2.Models.Calculator
+
+<h2>Prosty Kalkulator</h2>
+
+<form asp-controller="Home" asp-action="Calculate" method="post">
+    <label>Numer 1:</label>
+    <input type="text" asp-for="Number1" required />
+    <br />
+
+    <label>Rodzaj Operacji:</label>
+    <select asp-for="Operation" required>
+        <option value="+">Dodawanie</option>
+        <option value="-">Odejmowanie</option>
+        <option value="*">Mnożenie</option>
+        <option value="/">Dzielenie</option>
+    </select>
+    <br />
+
+    <label>Numer 2:</label>
+    <input type="text" asp-for="Number2" required />
+    <br />
+
+    <button type="submit">Oblicz</button>
+</form>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color: red;">@ViewBag.ErrorMessage</p>
+}
